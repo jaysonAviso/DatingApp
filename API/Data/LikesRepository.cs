@@ -20,7 +20,7 @@ namespace API.Data
             
         }
 
-        public void Add(UserLike userLike)
+        public void AddUserLike(UserLike userLike)
         {
             _context.Likes.Add(userLike);
         }

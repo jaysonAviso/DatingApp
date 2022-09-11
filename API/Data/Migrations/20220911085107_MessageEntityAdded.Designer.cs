@@ -3,6 +3,7 @@ using System;
 using API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220911085107_MessageEntityAdded")]
+    partial class MessageEntityAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -91,14 +93,14 @@ namespace API.Data.Migrations
                     b.Property<string>("RecipientIsername")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("SenderDeleted")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("SenderId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("SenderUsername")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("SerderDeleted")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 

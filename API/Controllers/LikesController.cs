@@ -48,7 +48,7 @@ namespace API.Controllers
                 LikedUserId = likedUser.Id
             };
 
-            _likesRepository.Add(userLike);
+            _likesRepository.AddUserLike(userLike);
 
             if ( await _likesRepository.SaveAllAsync()) return Ok();
 
