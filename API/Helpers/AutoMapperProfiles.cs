@@ -13,6 +13,7 @@ namespace API.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<RegisterDto, AppUser>();
             CreateMap<AppUser, MemberDto>()
                 .ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => 
                     src.Photos.FirstOrDefault(x => x.IsMain).Url))
