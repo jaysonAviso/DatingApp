@@ -42,9 +42,12 @@ export class MemberListComponent implements OnInit {
   }
 
   pageChanged(event: any) {
-    this.userParams.pageNumber = event.page;
-    this.membersService.setUserParams(this.userParams);
-    this.loadMembers();
+    if(this.userParams.pageNumber != event.page){
+      this.userParams.pageNumber = event.page;
+      this.membersService.setUserParams(this.userParams);
+      this.loadMembers();
+    }
+    
   }
   
 }

@@ -1,0 +1,10 @@
+.img-circle {
+    max-height: 50px;
+    border: 2px solid #c1c1c1;
+    border-radius: 50%;
+}
+
+.btn-danger {
+    color: #ffff;
+    background-color: #f57a00;
+}

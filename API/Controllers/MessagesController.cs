@@ -45,7 +45,7 @@ namespace API.Controllers
                 Sender = sender,
                 Recipient = recipient,
                 SenderUsername = sender.UserName,
-                RecipientIsername = recipient.UserName,
+                RecipientUsername = recipient.UserName,
                 Content = createMessageDto.Content   
             };
 
@@ -95,7 +95,25 @@ namespace API.Controllers
 
             if (await _messageRepository.SaveAllAsync()) return Ok();
 
-            return BadRequest("Problem deleting the message");
+            return BadRequest("there's Problem deleting the message");
+        }
+
+        [HttpDelete("unsend/{id}")]
+        public async Task<ActionResult> UnsendMessage(int id)
+        {
+            var username = User.GetUsername();
+
+            var message = await _messageRepository.GetMessage(id);
+
+            if(message.Sender.ToString() != username) return BadRequest("You cant unsend the message sent to you");
+
+            if(message == null) return NotFound();
+
+            _messageRepository.DeleteMessage(message);
+
+            if(await _messageRepository.SaveAllAsync()) return Ok();
+
+            return BadRequest("There's roblem deleting the message");
         }
     }
 }
