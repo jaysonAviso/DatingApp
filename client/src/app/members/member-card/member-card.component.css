@@ -36,3 +36,7 @@
 .animate {
     transition: all 0.3s ease-in-out;
 }
+
+.is-online {
+    color: #01ba2a;
+}
