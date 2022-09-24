@@ -10,7 +10,6 @@ namespace API.Interfaces
 {
     public interface ILikesRepository
     {
-        Task<bool> SaveAllAsync();
         void AddUserLike(UserLike userLike);
         Task<UserLike> GetUserLike(int sourceUserId, int likedUserId);
         Task<AppUser> GetUserWithLikes(int userId);
